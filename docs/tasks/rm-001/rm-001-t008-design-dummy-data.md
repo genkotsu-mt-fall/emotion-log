@@ -38,7 +38,7 @@
 
 ## 変更対象
 
-- ダミーデータ設計文書（形式はタスク実施時に決定）
+- [docs/tasks/rm-001/rm-001-t008-design-dummy-data.md](rm-001-t008-design-dummy-data.md)（実施結果セクションを追加して記録する）
 
 ## 実装・調査内容
 

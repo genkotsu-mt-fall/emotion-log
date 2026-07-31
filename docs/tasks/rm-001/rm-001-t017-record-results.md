@@ -8,6 +8,8 @@
 
 RM 1の検証結果を記録し、関連OQとRM 2へ引き継ぐ。
 
+T016の合格条件（必須端末・必須操作の成功、失敗の解消）を満たした場合にのみ開始する。
+
 ## 対象
 
 記録する内容：
@@ -54,7 +56,7 @@ RM 1の検証結果を記録し、関連OQとRM 2へ引き継ぐ。
 ## 変更対象
 
 - [docs/decisions/open-questions.md](../../decisions/open-questions.md)
-- RM 1の結果記録文書
+- [docs/tasks/rm-001/rm-001-validation-results.md](rm-001-validation-results.md)（T016で作成した結果ファイルを最終化する）
 
 ## 実装・調査内容
 

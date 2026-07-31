@@ -1,11 +1,8 @@
 # 成果物テンプレート
 
-通常は`docs/skills/000-next-action.md`から選ばれたスキルまたは内部ハンドラーが参照する。テンプレートを埋めるだけで判断を確定しない。
-
-- `mvp-release-plan.md`
-- `roadmap.md`
-- `task.md`
-- `application-instruction.md`
-- `execution-instruction.md`
+- `mvp-release-plan.md`: MVP全体計画
+- `roadmap.md`: 個別ロードマップ
+- `task.md`: 実装タスク
+- `copilot-instruction.md`: 文書変更、実装、修正、リリースに共通で使うinstruction
 
 ADRは`docs/architecture/adr/TEMPLATE.md`、変更記録は`docs/decisions/change-records/TEMPLATE.md`を使用する。

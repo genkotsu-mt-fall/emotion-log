@@ -1,33 +1,23 @@
-# Execution Instructions
+# GitHub Copilot Instructions
 
-このフォルダには、CodexまたはGitHub Copilotへ渡す完成済みの実行指示を保存する。
+このフォルダには、議論終了後にGitHub Copilot Webへ渡したinstructionを保存する。
 
-## 種類
+## 原則
 
-- 文書反映instruction: 一議題の結論からADR、OQ、変更記録、正本文書、ロードマップ、タスク、CHANGELOG、stateを反映する
-- タスク実装instruction: Readyタスクを実装する
-- 修正instruction: 実装レビューの一つの修正目的を扱う
-- リリースinstruction: デプロイ、移行、スモーク、ロールバック、公開記録を扱う
-
-## 共通原則
-
-- instruction内で新しい判断を行わない
-- 作成、更新、削除、対象外、検査、完了報告を具体的にする
-- 一つの独立議題または一つのタスクの範囲を越えない
-- 適用後は`docs/skills/240-review-applied-changes.md`または実装レビューで差分を検証する
-- 人間確認前にDone、Applied、マージ済み、リリース済みへ変更しない
+- 議論中には作らない
+- ユーザーが明示的に決定した後だけ作る
+- 同じ作業対象への複数の指摘を一つへまとめる
+- ADR、要件、UX、ロードマップ、タスク、stateなど、同じ結論に必要な変更を一つへまとめる
+- Copilotへ新しい判断をさせない
+- `main`へ直接変更せず、ブランチとPull Requestを作る
+- Pull RequestはChatGPTと人間がレビューしてからマージする
 
 ## 命名
-
-文書反映:
 
 ```text
 docs/instructions/YYYYMMDD-<work-id>-<short-name>.md
 ```
 
-タスク実装:
+## テンプレート
 
-```text
-docs/tasks/001-003-create-root-readme.md
-docs/instructions/001-003-create-root-readme.md
-```
+[`../templates/copilot-instruction.md`](../templates/copilot-instruction.md)を使用する。

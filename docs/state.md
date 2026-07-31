@@ -1,71 +1,37 @@
 ---
-schema_version: 3
-updated_at: 2026-07-28
-base_branch: main
-project_phase: Bootstrap
+version: 1
+updated_at: 2026-07-31
+phase: planning
 
-mvp_plan:
-  path: null
-  status: Not Started
-
-active_work:
-  type: null
-  path: null
+current:
   id: null
-  stage: null
-  agenda: null
-
-pending:
-  application_instruction:
-    path: null
-    status: none
-  implementation:
-    task: null
-    instruction: null
-    pull_request: null
-    status: none
-  release:
-    version: null
-    instruction: null
-    status: none
-
-return_stack: []
+  title: null
+  status: idle
+  path: null
+  checkpoint: null
 
 next_action:
-  kind: draft_mvp_roadmap_set
-  reason: MVPデプロイ・リリースまでの大項目と依存関係を最初に俯瞰するため
+  kind: draft_mvp_plan
+  reason: MVP公開までの成果、順序、依存関係を一つの全体計画として議論するため
 
 last_completed:
-  kind: workflow_redesign
-  reference: docs/skills/000-next-action.md
+  id: workflow-redesign
+  path: docs/skills/000-workflow.md
 ---
 
 # Project State
 
-このファイルはプロジェクトの現在地、未反映作業、中断、復帰先だけを管理する。
+このファイルは、マージ済みの現在地と、明示的に保存した中断状態だけを記録する。
 
-詳細な要件、議論、選択肢、決定理由は、Product、要件、UX、OQ、ADR、変更記録、ロードマップ、タスクへ記載する。
+## Current
 
-## Current state
-
-- フェーズ: `Bootstrap`
-- MVP全体計画: 未作成
+- フェーズ: `planning`
 - 現在の作業: なし
-- 未反映instruction: なし
-- 実装レビュー待ち: なし
-- 復帰待ち: なし
+- 状態: `idle`
+- checkpoint: なし
 
-`docs/roadmap/`と`docs/tasks/`に実ロードマップ・実タスクがないことは意図した初期状態である。
+## Next
 
-## Next action
+MVP公開までに必要な成果、順序、依存関係を含むMVP全体計画を一つの作業対象として開き、ユーザーと議論する。
 
-`docs/skills/000-next-action.md`を入口として、`100-draft-mvp-roadmap-set.md`相当の工程を実行する。
-
-最初に個別ロードマップ一件を詳細化するのではなく、MVPデプロイ・リリースまでの大項目、順序、依存関係、完了境界を含む全体案を作る。
-
-## Human approval rule
-
-- ChatGPTは現在地、最小議題、成果物種別、分岐先、復帰先を判断できる
-- ChatGPTはユーザー承認のない提案を決定済みとして扱わない
-- CodexまたはGitHub Copilotは承認済みinstructionに従って変更できる
-- タスクDone、変更記録Applied、PRマージ、本番リリース可否は人間の確認後にだけ確定する
+この段階ではファイル反映instructionを作らない。最初にたたき台を提示し、ユーザーからの複数の指摘をまとめて反映する。

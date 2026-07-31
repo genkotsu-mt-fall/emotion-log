@@ -11,12 +11,12 @@ current:
   checkpoint: null
 
 next_action:
-  kind: draft_mvp_plan
-  reason: MVP公開までの成果、順序、依存関係を一つの全体計画として議論するため
+  kind: decompose_rm_001
+  reason: MVP全体計画が確定したため、RM 1を実装可能なタスクへ分解する
 
 last_completed:
-  id: workflow-redesign
-  path: docs/skills/000-workflow.md
+  id: mvp-release-plan
+  path: docs/roadmap/mvp-release-plan.md
 ---
 
 # Project State
@@ -30,8 +30,12 @@ last_completed:
 - 状態: `idle`
 - checkpoint: なし
 
+## Last Completed
+
+MVP全体計画（`docs/roadmap/mvp-release-plan.md`）をApprovedとして作成した。
+
 ## Next
 
-MVP公開までに必要な成果、順序、依存関係を含むMVP全体計画を一つの作業対象として開き、ユーザーと議論する。
+`docs/roadmap/mvp-release-plan.md` のRM 1を実装可能なタスクへ分解する。
 
-この段階ではファイル反映instructionを作らない。最初にたたき台を提示し、ユーザーからの複数の指摘をまとめて反映する。
+この作業では、まずRM 1のタスク分解案を議論する。RM 1の実装やCopilot向け実装instructionは、タスク分解の議論が終わるまで作らない。

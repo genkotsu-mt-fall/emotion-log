@@ -4,19 +4,19 @@ updated_at: 2026-07-31
 phase: planning
 
 current:
-  id: null
-  title: null
-  status: idle
-  path: null
+  id: rm-001-t004
+  title: 仮の技術構成を選ぶ
+  status: ready
+  path: docs/tasks/rm-001/rm-001-t004-select-provisional-stack.md
   checkpoint: null
 
 next_action:
-  kind: decompose_rm_001
-  reason: MVP全体計画が確定したため、RM 1を実装可能なタスクへ分解する
+  kind: discuss_provisional_stack
+  reason: RM1-T004で、RM 1の試作品に仮使用するフロントエンド構成と散布図ライブラリ候補を議論する。正式採用は行わない
 
 last_completed:
-  id: mvp-release-plan
-  path: docs/roadmap/mvp-release-plan.md
+  id: rm-001-t003
+  path: docs/tasks/rm-001/rm-001-t003-define-validation-scenarios.md
 ---
 
 # Project State
@@ -26,16 +26,21 @@ last_completed:
 ## Current
 
 - フェーズ: `planning`
-- 現在の作業: なし
-- 状態: `idle`
+- 現在の作業:
+  - ID: `rm-001-t004`
+  - タイトル: 仮の技術構成を選ぶ
+  - 状態: `ready`
+  - パス: `docs/tasks/rm-001/rm-001-t004-select-provisional-stack.md`
 - checkpoint: なし
 
 ## Last Completed
 
-MVP全体計画（`docs/roadmap/mvp-release-plan.md`）をApprovedとして作成した。
+RM1-T003「検証シナリオと判定条件を作る」（`docs/tasks/rm-001/rm-001-t003-define-validation-scenarios.md`）を完了した。
+
+RM1-T001〜T003は、MVPの時系列表示を散布図のみへ変更し、RM 1を17タスクへ分解したPull Requestで完了した。
 
 ## Next
 
-`docs/roadmap/mvp-release-plan.md` のRM 1を実装可能なタスクへ分解する。
+RM1-T004「仮の技術構成を選ぶ」で、RM 1の試作品に仮使用するフロントエンド構成と散布図ライブラリ候補を議論する。
 
-この作業では、まずRM 1のタスク分解案を議論する。RM 1の実装やCopilot向け実装instructionは、タスク分解の議論が終わるまで作らない。
+正式採用は行わない。

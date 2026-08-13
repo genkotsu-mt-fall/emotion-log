@@ -1,6 +1,6 @@
 # RM1-T006: 固定点を使った最小散布図を表示する
 
-- 状態: Pending
+- 状態: Ready
 - ロードマップ: [docs/roadmap/rm-001-time-axis-pagination-spike.md](../../roadmap/rm-001-time-axis-pagination-spike.md)
 - 依存タスク: RM1-T005
 
@@ -32,6 +32,7 @@
 
 ## 実装・調査内容
 
+- T005で作成したDev ContainerとReact + TypeScript + Viteの土台を使用する
 - 固定日時を横軸に割り当てる
 - 固定気分値を縦軸に割り当てる
 - 絵文字を点として表示する
@@ -64,4 +65,5 @@
 
 | 日付 | 変更内容 |
 |---|---|
+| 2026-08-13 | T005完了を受けReadyとする |
 | 2026-07-31 | Pendingとして作成 |

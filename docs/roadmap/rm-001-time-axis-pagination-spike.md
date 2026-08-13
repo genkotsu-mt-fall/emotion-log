@@ -62,7 +62,19 @@ RM1-T004で、試作品を開始するために次を仮採用した。
 - 分割取得と通信遅延の再現: 非同期ローカルモック
 - 試作品の仮配置先: `prototypes/rm-001-scatter-pagination/`
 
-正確な依存パッケージのバージョンはT005で実際に初期化した`package.json`とlockfileへ記録する。
+RM1-T005で、RM 1専用の仮開発環境としてDocker + VS Code Dev Containersを追加した。
+
+- Dev Container配置先: `prototypes/rm-001-scatter-pagination/.devcontainer/`
+- Dockerfile: 必須
+- Node.js: T005実施時点の最新LTSメジャー（Node.js 24系列）
+- ベースOS: Debian stable slim（Trixie）
+- 通常開発ユーザー: Node.js公式イメージの`node`ユーザー
+- Docker Compose: 使用しない
+- `privileged`: 使用しない
+- Docker socket mount: 使用しない
+- VS Code拡張: 必要最小限
+
+T005で実際に使用したフロントエンド依存の正確な解決結果は`package.json`と`package-lock.json`へ記録する。
 
 RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始閾値や縦横移動比率は実装しない。
 
@@ -104,8 +116,8 @@ RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始�
 | 2 | RM1-T002 | 関連OQと仮値を整理する | Completed | T001 | [rm-001-t002-organize-open-questions.md](../tasks/rm-001/rm-001-t002-organize-open-questions.md) |
 | 3 | RM1-T003 | 検証シナリオと判定条件を作る | Completed | T002 | [rm-001-t003-define-validation-scenarios.md](../tasks/rm-001/rm-001-t003-define-validation-scenarios.md) |
 | 4 | RM1-T004 | 仮の技術構成を選ぶ | Completed | T003 | [rm-001-t004-select-provisional-stack.md](../tasks/rm-001/rm-001-t004-select-provisional-stack.md) |
-| 5 | RM1-T005 | ローカルで試作品の土台を起動する | Ready | T004 | [rm-001-t005-bootstrap-prototype.md](../tasks/rm-001/rm-001-t005-bootstrap-prototype.md) |
-| 6 | RM1-T006 | 固定点を使った最小散布図を表示する | Pending | T005 | [rm-001-t006-render-fixed-scatter-point.md](../tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md) |
+| 5 | RM1-T005 | ローカルで試作品の土台を起動する | Completed | T004 | [rm-001-t005-bootstrap-prototype.md](../tasks/rm-001/rm-001-t005-bootstrap-prototype.md) |
+| 6 | RM1-T006 | 固定点を使った最小散布図を表示する | Ready | T005 | [rm-001-t006-render-fixed-scatter-point.md](../tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md) |
 | 7 | RM1-T007 | 確認用URLへ最小デプロイする | Pending | T006 | [rm-001-t007-deploy-minimal-prototype.md](../tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md) |
 | 8 | RM1-T008 | ダミーデータの条件を設計する | Pending | T003 | [rm-001-t008-design-dummy-data.md](../tasks/rm-001/rm-001-t008-design-dummy-data.md) |
 | 9 | RM1-T009 | 分割取得モックを作る | Pending | T005, T008 | [rm-001-t009-build-paged-data-mock.md](../tasks/rm-001/rm-001-t009-build-paged-data-mock.md) |
@@ -151,5 +163,6 @@ RM 1で仮採用した技術、数値、取得単位はすべて仮値として�
 
 | 日付 | 内容 |
 |---|---|
+| 2026-08-13 | RM1-T005を完了。Docker + Dev Containerによる仮開発環境を追加し、T006をReadyとする |
 | 2026-08-10 | RM1-T004を完了。仮技術構成と試作品配置先を記録し、T005をReadyとする |
 | 2026-07-31 | Approvedとして作成。RM1-T001〜T003を完了、T004をReadyとする |

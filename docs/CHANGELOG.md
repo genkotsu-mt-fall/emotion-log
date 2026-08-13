@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- RM1-T005で、`prototypes/rm-001-scatter-pagination/`にDocker + Dev Containerによる再現可能な開発環境を追加
+- RM1-T005の開発コンテナをNode.js 24 LTS系列 + Debian Trixie slim、通常開発を`node`ユーザーとする構成へ確定
+- RM1-T005では`privileged`とDocker socket mountを使用せず、OSパッケージとVS Code拡張を必要最小限にする方針を採用
+- RM1-T005で、Vite公式`react-ts`テンプレートを基準にReact + TypeScript + Viteの最小試作品を作成
+- RM1-T005でPlotly.js + react-plotly.jsを依存関係へ追加し、描画はRM1-T006へ分離
+- リポジトリ直下の`gitignore`を`.gitignore`へ修正
+- RM1-T005をCompleted、RM1-T006をReadyへ更新
 - RM1-T004で、RM 1の試作品にReact + TypeScript + Vite + npm、Plotly.js + react-plotly.jsを仮採用
 - RM 1の試作品配置先を`prototypes/rm-001-scatter-pagination/`に確定
 - RM 1ではPlotly.jsの標準パンを使用し、独自のパン開始閾値と縦横移動比率を実装しない方針へ変更

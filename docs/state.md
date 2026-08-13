@@ -1,22 +1,22 @@
 ---
 version: 1
-updated_at: 2026-08-10
+updated_at: 2026-08-13
 phase: planning
 
 current:
-  id: rm-001-t005
-  title: ローカルで試作品の土台を起動する
+  id: rm-001-t006
+  title: 固定点を使った最小散布図を表示する
   status: ready
-  path: docs/tasks/rm-001/rm-001-t005-bootstrap-prototype.md
+  path: docs/tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md
   checkpoint: null
 
 next_action:
-  kind: bootstrap_prototype
-  reason: RM1-T004で仮採用したReact + TypeScript + Vite + npmと、prototypes/rm-001-scatter-pagination/の配置先を使い、ローカルで最小の試作品を起動する
+  kind: render_fixed_scatter_point
+  reason: RM1-T005でDocker + Dev Containerによる試作品の土台を構築したため、仮採用したPlotly.js + react-plotly.jsで固定点を使った最小散布図を表示する
 
 last_completed:
-  id: rm-001-t004
-  path: docs/tasks/rm-001/rm-001-t004-select-provisional-stack.md
+  id: rm-001-t005
+  path: docs/tasks/rm-001/rm-001-t005-bootstrap-prototype.md
 ---
 
 # Project State
@@ -27,22 +27,22 @@ last_completed:
 
 - フェーズ: `planning`
 - 現在の作業:
-  - ID: `rm-001-t005`
-  - タイトル: ローカルで試作品の土台を起動する
+  - ID: `rm-001-t006`
+  - タイトル: 固定点を使った最小散布図を表示する
   - 状態: `ready`
-  - パス: `docs/tasks/rm-001/rm-001-t005-bootstrap-prototype.md`
+  - パス: `docs/tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md`
 - checkpoint: なし
 
 ## Last Completed
 
-RM1-T004「仮の技術構成を選ぶ」（`docs/tasks/rm-001/rm-001-t004-select-provisional-stack.md`）を完了した。
+RM1-T005「ローカルで試作品の土台を起動する」（`docs/tasks/rm-001/rm-001-t005-bootstrap-prototype.md`）を完了した。
 
-RM 1の試作品では、React + TypeScript + Vite + npm、Plotly.js + react-plotly.jsを仮採用し、試作品の配置先を`prototypes/rm-001-scatter-pagination/`とした。
+`prototypes/rm-001-scatter-pagination/`にReact + TypeScript + Vite + npmの最小試作品を作成し、Docker + Dev Containerで再現可能な開発環境を用意した。
 
-RM 1ではPlotly.jsの標準パンを利用し、独自のパン開始閾値は実装しない。正式な技術採用はRM 2で行う。
+開発コンテナはNode.js 24 LTS系列 + Debian Trixie slimを基準とし、通常開発は`node`ユーザーで行う。`privileged`とDocker socket mountは使用しない。
+
+Plotly.js + react-plotly.jsは依存関係へ追加したが、散布図描画はT006へ残している。
 
 ## Next
 
-RM1-T005「ローカルで試作品の土台を起動する」で、T004の仮採用構成を使い、`prototypes/rm-001-scatter-pagination/`にローカルで動作する最小の試作品を作る。
-
-散布図の描画はT006で行う。
+RM1-T006「固定点を使った最小散布図を表示する」で、固定日時、固定気分値、絵文字を使った最小散布図を表示し、表示時間範囲を取得できることを確認する。

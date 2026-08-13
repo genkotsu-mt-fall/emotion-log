@@ -43,12 +43,30 @@
 - パン判定値の正式決定
 - 最終デザイン
 - 時系列リスト
+- 散布図のアクセシビリティとキーボード操作の評価
 
 ## 前提と依存関係
 
 - MVPの時系列表示は散布図のみとする（CR-0001）
 - 時系列リストはMVPから外されている
 - 正式な技術構成はRM 2で決定する
+
+## RM 1の仮技術構成
+
+RM1-T004で、試作品を開始するために次を仮採用した。
+
+- フロントエンド: React + TypeScript + Vite
+- パッケージ管理: npm
+- 散布図: Plotly.js + react-plotly.js
+- 状態管理: Reactのローカルstate
+- 分割取得と通信遅延の再現: 非同期ローカルモック
+- 試作品の仮配置先: `prototypes/rm-001-scatter-pagination/`
+
+正確な依存パッケージのバージョンはT005で実際に初期化した`package.json`とlockfileへ記録する。
+
+RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始閾値や縦横移動比率は実装しない。
+
+この構成はRM 1の検証用であり、正式採用ではない。
 
 ## 完了境界
 
@@ -69,10 +87,10 @@
 | OQ-019 | 時系列表示の形式 | Resolved：散布図のみ |
 | OQ-026 | 同一時刻・同一気分値のログ表示 | データ統合で失わないことを確認 |
 | OQ-027 | 絵文字の重なり表示 | 重なりが発生するデータを扱えることを確認 |
-| OQ-028 | マウスのパン開始閾値 | 仮値5 CSS pxを使用 |
-| OQ-029 | タッチのパン開始閾値 | 仮値10 CSS pxを使用 |
-| OQ-030 | パン判定の縦移動比率 | 仮値1.2倍を使用 |
-| OQ-031 | 可視化ライブラリ | 検証用ライブラリを仮採用 |
+| OQ-028 | マウスのパン開始閾値 | 独自閾値は実装せず、Plotly.js標準パンを使用 |
+| OQ-029 | タッチのパン開始閾値 | 独自閾値は実装せず、Plotly.js標準パンを使用 |
+| OQ-030 | パン判定の縦移動比率 | 独自判定は実装せず、Plotly.js標準パンを使用 |
+| OQ-031 | 可視化ライブラリ | Plotly.js + react-plotly.jsを仮採用 |
 | OQ-055 | 追加取得の開始条件 | 仮の取得開始条件で検証 |
 | OQ-056 | 本番APIの分割取得方式 | モック関数で検証、本番仕様としない |
 | OQ-057 | 同一日時の第2ソートキー | 仮IDを使用 |
@@ -85,8 +103,8 @@
 | 1 | RM1-T001 | RM 1の対象と対象外を固定する | Completed | — | [rm-001-t001-fix-scope.md](../tasks/rm-001/rm-001-t001-fix-scope.md) |
 | 2 | RM1-T002 | 関連OQと仮値を整理する | Completed | T001 | [rm-001-t002-organize-open-questions.md](../tasks/rm-001/rm-001-t002-organize-open-questions.md) |
 | 3 | RM1-T003 | 検証シナリオと判定条件を作る | Completed | T002 | [rm-001-t003-define-validation-scenarios.md](../tasks/rm-001/rm-001-t003-define-validation-scenarios.md) |
-| 4 | RM1-T004 | 仮の技術構成を選ぶ | Ready | T003 | [rm-001-t004-select-provisional-stack.md](../tasks/rm-001/rm-001-t004-select-provisional-stack.md) |
-| 5 | RM1-T005 | ローカルで試作品の土台を起動する | Pending | T004 | [rm-001-t005-bootstrap-prototype.md](../tasks/rm-001/rm-001-t005-bootstrap-prototype.md) |
+| 4 | RM1-T004 | 仮の技術構成を選ぶ | Completed | T003 | [rm-001-t004-select-provisional-stack.md](../tasks/rm-001/rm-001-t004-select-provisional-stack.md) |
+| 5 | RM1-T005 | ローカルで試作品の土台を起動する | Ready | T004 | [rm-001-t005-bootstrap-prototype.md](../tasks/rm-001/rm-001-t005-bootstrap-prototype.md) |
 | 6 | RM1-T006 | 固定点を使った最小散布図を表示する | Pending | T005 | [rm-001-t006-render-fixed-scatter-point.md](../tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md) |
 | 7 | RM1-T007 | 確認用URLへ最小デプロイする | Pending | T006 | [rm-001-t007-deploy-minimal-prototype.md](../tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md) |
 | 8 | RM1-T008 | ダミーデータの条件を設計する | Pending | T003 | [rm-001-t008-design-dummy-data.md](../tasks/rm-001/rm-001-t008-design-dummy-data.md) |
@@ -133,4 +151,5 @@ RM 1で仮採用した技術、数値、取得単位はすべて仮値として�
 
 | 日付 | 内容 |
 |---|---|
+| 2026-08-10 | RM1-T004を完了。仮技術構成と試作品配置先を記録し、T005をReadyとする |
 | 2026-07-31 | Approvedとして作成。RM1-T001〜T003を完了、T004をReadyとする |

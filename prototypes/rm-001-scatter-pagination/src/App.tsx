@@ -54,11 +54,6 @@ const emotionScatterPlotData: unknown[] = [
     y: FIXED_EMOTION_LOGS.map((emotionLog) => emotionLog.moodValue),
     text: FIXED_EMOTION_LOGS.map((emotionLog) => emotionLog.emoji),
     textfont: { size: 30 },
-    hovertext: FIXED_EMOTION_LOGS.map(
-      (emotionLog) =>
-        `${emotionLog.emoji} ${emotionLog.feltAt} / mood ${emotionLog.moodValue}`,
-    ),
-    hoverinfo: 'text',
   },
 ]
 
@@ -100,12 +95,14 @@ function isStringKeyedRecord(value: unknown): value is Record<string, unknown> {
  * Plotlyのx軸range境界を、アプリ側で保持する文字列へ正規化する。
  * 読み取れない値は通常の変換失敗としてnullを返す。
  */
-function normalizePlotlyRangeBoundary(value: unknown): string | null {
-  if (typeof value === 'string') return value
-  if (!(value instanceof Date)) return null
-  if (Number.isNaN(value.getTime())) return null
+function normalizePlotlyRangeBoundary(
+  plotlyRangeBoundary: unknown,
+): string | null {
+  if (typeof plotlyRangeBoundary === 'string') return plotlyRangeBoundary
+  if (!(plotlyRangeBoundary instanceof Date)) return null
+  if (Number.isNaN(plotlyRangeBoundary.getTime())) return null
 
-  return value.toISOString()
+  return plotlyRangeBoundary.toISOString()
 }
 
 /**
@@ -136,9 +133,9 @@ function App() {
   const [visibleRange, setVisibleRange] = useState<VisibleRange | null>(null)
 
   // T006では初期表示範囲だけを取り込む。パン後の範囲更新はRM1-T011で扱う。
-  const handlePlotInitialized = (figure: Figure) => {
+  const handlePlotInitialized = (plotlyFigure: Figure) => {
     const initializedVisibleRange = extractVisibleRangeFromPlotlyLayout(
-      figure.layout,
+      plotlyFigure.layout,
     )
     if (initializedVisibleRange === null) return
 

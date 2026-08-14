@@ -66,11 +66,6 @@ h1 {
   background: #ffffff;
 }
 
-.range-panel h2 {
-  margin: 0;
-  font-size: 1rem;
-}
-
 .range-panel p {
   margin: 8px 0 0;
   overflow-wrap: anywhere;

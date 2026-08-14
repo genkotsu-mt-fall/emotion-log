@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- RM1-T006をCompleted、RM1-T007をReadyへ更新。ブラウザ確認、`npm run lint`、`npm run build`、`git diff --check`を完了し、Plotly.jsを含むJavaScript chunkの500 kB超過warningをT007とRM 2への観察事項として記録
+- RM1-T006の散布図で、縦軸を0〜100へ固定し、横軸を検証用の過去下限1989年からページ読込時点の現在時刻までに制約。確認用range表示の見出しを削除
+- 散布図のmodebarからBox SelectとLasso Selectを除外し、PNG保存は自分の散布図だけに提供するUX方針を追加
+- RM1-T006の実装方針として、固定3点の絵文字を日時×気分値の散布図へ表示し、初期表示時間範囲をアプリ側の`VisibleRange`へ変換する構成を追加
+- TypeScriptの`strict: true`を有効化
+- 共通コード制約を`docs/engineering/code-constraints.md`へ正本化
+- 共通コード制約へ、プロジェクト固有概念を明示する命名、非自明な処理へ意図を残すコメント、型注釈・`satisfies`・`readonly`の使い分けルールを追加
+- 実装方針の議論、コード変更、コードを含むPull Requestレビューで共通コード制約を参照するワークフローへ更新
 - RM1-T005で、`prototypes/rm-001-scatter-pagination/`にDocker + Dev Containerによる再現可能な開発環境を追加
 - RM1-T005の開発コンテナをNode.js 24 LTS系列 + Debian Trixie slim、通常開発を`node`ユーザーとする構成へ確定
 - RM1-T005では`privileged`とDocker socket mountを使用せず、OSパッケージとVS Code拡張を必要最小限にする方針を採用

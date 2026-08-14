@@ -117,8 +117,8 @@ RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始�
 | 3 | RM1-T003 | 検証シナリオと判定条件を作る | Completed | T002 | [rm-001-t003-define-validation-scenarios.md](../tasks/rm-001/rm-001-t003-define-validation-scenarios.md) |
 | 4 | RM1-T004 | 仮の技術構成を選ぶ | Completed | T003 | [rm-001-t004-select-provisional-stack.md](../tasks/rm-001/rm-001-t004-select-provisional-stack.md) |
 | 5 | RM1-T005 | ローカルで試作品の土台を起動する | Completed | T004 | [rm-001-t005-bootstrap-prototype.md](../tasks/rm-001/rm-001-t005-bootstrap-prototype.md) |
-| 6 | RM1-T006 | 固定点を使った最小散布図を表示する | Ready | T005 | [rm-001-t006-render-fixed-scatter-point.md](../tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md) |
-| 7 | RM1-T007 | 確認用URLへ最小デプロイする | Pending | T006 | [rm-001-t007-deploy-minimal-prototype.md](../tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md) |
+| 6 | RM1-T006 | 固定点を使った最小散布図を表示する | Completed | T005 | [rm-001-t006-render-fixed-scatter-point.md](../tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md) |
+| 7 | RM1-T007 | 確認用URLへ最小デプロイする | Ready | T006 | [rm-001-t007-deploy-minimal-prototype.md](../tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md) |
 | 8 | RM1-T008 | ダミーデータの条件を設計する | Pending | T003 | [rm-001-t008-design-dummy-data.md](../tasks/rm-001/rm-001-t008-design-dummy-data.md) |
 | 9 | RM1-T009 | 分割取得モックを作る | Pending | T005, T008 | [rm-001-t009-build-paged-data-mock.md](../tasks/rm-001/rm-001-t009-build-paged-data-mock.md) |
 | 10 | RM1-T010 | 初期データを散布図へ表示する | Pending | T006, T009 | [rm-001-t010-render-initial-data.md](../tasks/rm-001/rm-001-t010-render-initial-data.md) |
@@ -163,6 +163,7 @@ RM 1で仮採用した技術、数値、取得単位はすべて仮値として�
 
 | 日付 | 内容 |
 |---|---|
+| 2026-08-14 | RM1-T006を完了。固定点の最小散布図、軸操作制約、modebar制御、初期表示時間範囲取得を確認し、T007をReadyとする。Plotly.jsを含むbundle-size warningはT007とRM 2への観察事項として残す |
 | 2026-08-13 | RM1-T005を完了。Docker + Dev Containerによる仮開発環境を追加し、T006をReadyとする |
 | 2026-08-10 | RM1-T004を完了。仮技術構成と試作品配置先を記録し、T005をReadyとする |
 | 2026-07-31 | Approvedとして作成。RM1-T001〜T003を完了、T004をReadyとする |

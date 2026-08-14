@@ -1,22 +1,22 @@
 ---
 version: 1
-updated_at: 2026-08-13
+updated_at: 2026-08-14
 phase: planning
 
 current:
-  id: rm-001-t006
-  title: 固定点を使った最小散布図を表示する
+  id: rm-001-t007
+  title: 確認用URLへ最小デプロイする
   status: ready
-  path: docs/tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md
+  path: docs/tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md
   checkpoint: null
 
 next_action:
-  kind: render_fixed_scatter_point
-  reason: RM1-T005でDocker + Dev Containerによる試作品の土台を構築したため、仮採用したPlotly.js + react-plotly.jsで固定点を使った最小散布図を表示する
+  kind: deploy_minimal_prototype
+  reason: RM1-T006で固定点を使った最小散布図を実装し、ブラウザ確認、lint、production buildを完了したため、確認用URLへ最小デプロイする
 
 last_completed:
-  id: rm-001-t005
-  path: docs/tasks/rm-001/rm-001-t005-bootstrap-prototype.md
+  id: rm-001-t006
+  path: docs/tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md
 ---
 
 # Project State
@@ -27,22 +27,24 @@ last_completed:
 
 - フェーズ: `planning`
 - 現在の作業:
-  - ID: `rm-001-t006`
-  - タイトル: 固定点を使った最小散布図を表示する
+  - ID: `rm-001-t007`
+  - タイトル: 確認用URLへ最小デプロイする
   - 状態: `ready`
-  - パス: `docs/tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md`
+  - パス: `docs/tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md`
 - checkpoint: なし
 
 ## Last Completed
 
-RM1-T005「ローカルで試作品の土台を起動する」（`docs/tasks/rm-001/rm-001-t005-bootstrap-prototype.md`）を完了した。
+RM1-T006「固定点を使った最小散布図を表示する」（`docs/tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md`）を完了した。
 
-`prototypes/rm-001-scatter-pagination/`にReact + TypeScript + Vite + npmの最小試作品を作成し、Docker + Dev Containerで再現可能な開発環境を用意した。
+Plotly.js + react-plotly.jsで、固定日時、固定気分値、絵文字を使った最小散布図を表示した。
 
-開発コンテナはNode.js 24 LTS系列 + Debian Trixie slimを基準とし、通常開発は`node`ユーザーで行う。`privileged`とDocker socket mountは使用しない。
+縦軸は0〜100へ固定し、横軸はT006用の仮下限からページ読込時点の現在時刻までに制約した。Box SelectとLasso Selectはmodebarから除外し、Download as a PNGはT006では表示したままとした。
 
-Plotly.js + react-plotly.jsは依存関係へ追加したが、散布図描画はT006へ残している。
+Plotlyの初期x軸rangeを、Plotly固有オブジェクトをstateへ残さずアプリ側の`VisibleRange`へ変換できることを確認した。
+
+ブラウザ確認、`npm run lint`、`npm run build`、`git diff --check`を完了した。production buildではPlotly.jsを含むJavaScript chunkの500 kB超過warningが出ており、T007の確認用URLで初回表示を観察し、正式採用判断はRM 2へ引き継ぐ。
 
 ## Next
 
-RM1-T006「固定点を使った最小散布図を表示する」で、固定日時、固定気分値、絵文字を使った最小散布図を表示し、表示時間範囲を取得できることを確認する。
+RM1-T007「確認用URLへ最小デプロイする」で、固定点までの試作品を確認用URLへ公開し、PC・スマートフォンから開けることと再デプロイできることを確認する。

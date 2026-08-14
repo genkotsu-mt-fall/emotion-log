@@ -44,17 +44,38 @@ h1 {
   font-size: clamp(2rem, 6vw, 3.5rem);
 }
 
-.plot-placeholder {
-  display: grid;
-  min-height: 360px;
+.plot-panel {
+  height: 420px;
   margin-top: 32px;
-  place-items: center;
-  border: 1px dashed #94a3b8;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
   background: #ffffff;
 }
 
-.plot-placeholder p {
+.emotion-plot {
+  width: 100%;
+  height: 100%;
+}
+
+.range-panel {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.range-panel h2 {
   margin: 0;
-  color: #64748b;
+  font-size: 1rem;
+}
+
+.range-panel p {
+  margin: 8px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.range-panel code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }

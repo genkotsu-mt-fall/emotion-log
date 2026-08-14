@@ -1,6 +1,6 @@
 # RM1-T007: 確認用URLへ最小デプロイする
 
-- 状態: Pending
+- 状態: Ready
 - ロードマップ: [docs/roadmap/rm-001-time-axis-pagination-spike.md](../../roadmap/rm-001-time-axis-pagination-spike.md)
 - 依存タスク: RM1-T006
 
@@ -51,6 +51,7 @@
 - PCとスマートフォンから確認用URLを開ける
 - 再デプロイできる
 - 本番APIやDBへ依存していない
+- T006で観察したPlotly.jsを含むJavaScript bundleの大きさについて、確認用URLの初回表示で体感上の問題がないか観察する
 
 ## 成果物
 
@@ -67,8 +68,11 @@
 
 T004で選んだ構成のビルド成果物を公開できるデプロイ先を、T007で仮選定する。正式なホスティング構成は決めない。
 
+T006のproduction buildでは、Plotly.jsを含むJavaScript chunkが約4,846.04 kB、gzip後約1,453.23 kBとなり、Viteの500 kB超過warningが出た。T007ではbundle最適化を目的にせず、PC・スマートフォンから確認用URLを開いたときの初回表示を観察する。
+
 ## 変更履歴
 
 | 日付 | 変更内容 |
 |---|---|
+| 2026-08-14 | T006完了を受けReadyとする。T006で観察したbundle-size warningを実機確認の観察事項として引き継ぐ |
 | 2026-07-31 | Pendingとして作成 |

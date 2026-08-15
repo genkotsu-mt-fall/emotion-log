@@ -135,8 +135,8 @@ RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始�
 | 6 | RM1-T006 | 固定点を使った最小散布図を表示する | Completed | T005 | [rm-001-t006-render-fixed-scatter-point.md](../tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md) |
 | 7 | RM1-T007 | 確認用URLへ最小デプロイする | Completed | T006 | [rm-001-t007-deploy-minimal-prototype.md](../tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md) |
 | 8 | RM1-T008 | ダミーデータの条件を設計する | Completed | T003 | [rm-001-t008-design-dummy-data.md](../tasks/rm-001/rm-001-t008-design-dummy-data.md) |
-| 9 | RM1-T009 | 分割取得モックを作る | Ready | T005, T008 | [rm-001-t009-build-paged-data-mock.md](../tasks/rm-001/rm-001-t009-build-paged-data-mock.md) |
-| 10 | RM1-T010 | 初期データを散布図へ表示する | Pending | T006, T009 | [rm-001-t010-render-initial-data.md](../tasks/rm-001/rm-001-t010-render-initial-data.md) |
+| 9 | RM1-T009 | 分割取得モックを作る | Completed | T005, T008 | [rm-001-t009-build-paged-data-mock.md](../tasks/rm-001/rm-001-t009-build-paged-data-mock.md) |
+| 10 | RM1-T010 | 初期データを散布図へ表示する | Ready | T006, T009 | [rm-001-t010-render-initial-data.md](../tasks/rm-001/rm-001-t010-render-initial-data.md) |
 | 11 | RM1-T011 | マウスとタッチのパン操作を作る | Pending | T010 | [rm-001-t011-implement-pan-input.md](../tasks/rm-001/rm-001-t011-implement-pan-input.md) |
 | 12 | RM1-T012 | 過去側の取得境界を検知する | Pending | T011 | [rm-001-t012-detect-past-boundary.md](../tasks/rm-001/rm-001-t012-detect-past-boundary.md) |
 | 13 | RM1-T013 | 追加取得の状態と重複実行を制御する | Pending | T012 | [rm-001-t013-control-fetch-state.md](../tasks/rm-001/rm-001-t013-control-fetch-state.md) |
@@ -176,6 +176,22 @@ RM1-T008で、RM 1の検証用ダミーデータ条件を次のように固定�
 
 これらの数値と境界重複条件はRM 1の検証用であり、正式APIや正式取得単位の仕様ではない。
 
+### T009で実装した分割取得モック
+
+RM1-T009で、T008の固定条件をそのまま使う非同期ローカルモックと自動テストを追加した。
+
+- 正常取得の固定通信遅延: 1000ms
+- 取得レスポンス: 5件、5件、5件、4件
+- 取得レスポンス延べ: 19件
+- 境界で意図的に再掲載するID: `log-005`、`log-009`、`log-013`
+- IDで集計した期待ユニーク累計: `5 → 9 → 13 → 16`
+- 最古より過去: 0件、`hasEarlier=false`
+- 未定義の取得境界: Errorでreject
+
+Vitestのfake timerを使い、通信遅延を実時間で待たずに検査する。
+
+これらはRM 1検証用であり、本番API、正式カーソル、正式取得期間を決定するものではない。
+
 ## RM 2への引き継ぎ
 
 RM 1の検証結果をもとに、RM 2で次を正式決定する。
@@ -195,6 +211,7 @@ RM 1で仮採用した技術、数値、取得単位はすべて仮値として�
 
 | 日付 | 内容 |
 |---|---|
+| 2026-08-16 | RM1-T009を完了。固定1000ms遅延を持つ分割取得モックとVitestによる自動検査を追加し、T010をReadyとする |
 | 2026-08-15 | RM1-T008を完了。固定基準日、正本16件、4取得単位、境界重複3件、統合後期待件数`5 → 9 → 13 → 16`を固定し、T009をReadyとする |
 | 2026-08-15 | RM1-T007を完了。Vercel Hobby + GitHub IntegrationでPC・スマートフォンからの表示と再デプロイを確認し、T008をReadyとする。bundle-size warningと端末間の絵文字表示差をRM 2への判断材料として残す |
 | 2026-08-14 | RM1-T006を完了。固定点の最小散布図、軸操作制約、modebar制御、初期表示時間範囲取得を確認し、T007をReadyとする。Plotly.jsを含むbundle-size warningはT007とRM 2への観察事項として残す |

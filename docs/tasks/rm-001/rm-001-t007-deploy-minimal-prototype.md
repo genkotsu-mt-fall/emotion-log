@@ -64,6 +64,18 @@ RM 1の確認用デプロイ先として、Vercel Hobby + GitHub Integrationを�
 
 この構成はRM 1の検証用であり、正式なホスティング構成ではない。
 
+### デプロイ手順
+
+1. VercelでGitHubリポジトリ`genkotsu-mt-fall/emotion-log`をImportした。
+2. Production Branchを`main`とした。
+3. Root Directoryを`prototypes/rm-001-scatter-pagination`とした。
+4. FrameworkをViteとし、既存の`npm run build`をBuild Commandとして使用した。
+5. Output Directoryを`dist`とした。
+6. 環境変数と`vercel.json`を追加せず、初回デプロイを実行した。
+7. 再デプロイ確認では、Vercel DashboardからRedeployを実行した。
+
+Vercel CLIは使用していない。共有用クエリパラメータや一時的な共有トークンは手順へ記録しない。
+
 ### デプロイ先URL
 
 リポジトリへ記録する基底URL:

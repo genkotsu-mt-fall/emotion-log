@@ -1,6 +1,6 @@
 # RM1-T008: ダミーデータの条件を設計する
 
-- 状態: Pending
+- 状態: Ready
 - ロードマップ: [docs/roadmap/rm-001-time-axis-pagination-spike.md](../../roadmap/rm-001-time-axis-pagination-spike.md)
 - 依存タスク: RM1-T003
 
@@ -82,4 +82,5 @@
 
 | 日付 | 変更内容 |
 |---|---|
+| 2026-08-15 | T007完了を受け、次の作業対象としてReadyとする |
 | 2026-07-31 | Pendingとして作成 |

@@ -76,6 +76,20 @@ RM1-T005で、RM 1専用の仮開発環境としてDocker + VS Code Dev Containe
 
 T005で実際に使用したフロントエンド依存の正確な解決結果は`package.json`と`package-lock.json`へ記録する。
 
+RM1-T007で、RM 1の確認用デプロイ先としてVercel Hobby + GitHub Integrationを仮採用した。
+
+- Production Branch: `main`
+- Root Directory: `prototypes/rm-001-scatter-pagination`
+- Framework: Vite
+- Build Command: 既存の`npm run build`
+- Output Directory: `dist`
+- 環境変数: 追加なし
+- `vercel.json`: 追加なし
+- デプロイ先の基底URL: `https://emotion-log-dev.vercel.app`
+- PC・スマートフォンの確認で使用したVercel共有用トークン: リポジトリへ記録しない
+
+このデプロイ構成はRM 1の検証用であり、正式なホスティング構成ではない。
+
 RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始閾値や縦横移動比率は実装しない。
 
 この構成はRM 1の検証用であり、正式採用ではない。
@@ -107,6 +121,7 @@ RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始�
 | OQ-056 | 本番APIの分割取得方式 | モック関数で検証、本番仕様としない |
 | OQ-057 | 同一日時の第2ソートキー | 仮IDを使用 |
 | OQ-058 | 追加後の表示位置維持方式 | 仮の方式で検証 |
+| OQ-060 | 絵文字の端末間の見た目 | T016で端末差を観察し、差異だけでは失敗としない |
 
 ## タスク
 
@@ -118,8 +133,8 @@ RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始�
 | 4 | RM1-T004 | 仮の技術構成を選ぶ | Completed | T003 | [rm-001-t004-select-provisional-stack.md](../tasks/rm-001/rm-001-t004-select-provisional-stack.md) |
 | 5 | RM1-T005 | ローカルで試作品の土台を起動する | Completed | T004 | [rm-001-t005-bootstrap-prototype.md](../tasks/rm-001/rm-001-t005-bootstrap-prototype.md) |
 | 6 | RM1-T006 | 固定点を使った最小散布図を表示する | Completed | T005 | [rm-001-t006-render-fixed-scatter-point.md](../tasks/rm-001/rm-001-t006-render-fixed-scatter-point.md) |
-| 7 | RM1-T007 | 確認用URLへ最小デプロイする | Ready | T006 | [rm-001-t007-deploy-minimal-prototype.md](../tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md) |
-| 8 | RM1-T008 | ダミーデータの条件を設計する | Pending | T003 | [rm-001-t008-design-dummy-data.md](../tasks/rm-001/rm-001-t008-design-dummy-data.md) |
+| 7 | RM1-T007 | 確認用URLへ最小デプロイする | Completed | T006 | [rm-001-t007-deploy-minimal-prototype.md](../tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md) |
+| 8 | RM1-T008 | ダミーデータの条件を設計する | Ready | T003 | [rm-001-t008-design-dummy-data.md](../tasks/rm-001/rm-001-t008-design-dummy-data.md) |
 | 9 | RM1-T009 | 分割取得モックを作る | Pending | T005, T008 | [rm-001-t009-build-paged-data-mock.md](../tasks/rm-001/rm-001-t009-build-paged-data-mock.md) |
 | 10 | RM1-T010 | 初期データを散布図へ表示する | Pending | T006, T009 | [rm-001-t010-render-initial-data.md](../tasks/rm-001/rm-001-t010-render-initial-data.md) |
 | 11 | RM1-T011 | マウスとタッチのパン操作を作る | Pending | T010 | [rm-001-t011-implement-pan-input.md](../tasks/rm-001/rm-001-t011-implement-pan-input.md) |
@@ -143,6 +158,7 @@ RM 1ではPlotly.jsの標準パンを使用し、アプリ独自のパン開始�
 - 通信遅延を再現する
 - 最古データ到達を再現する
 - PC、iPhone、Androidで確認する
+- T016では端末ごとの絵文字の見た目をOQ-060の判断材料として観察する
 
 30日は検証用の仮値であり、正式APIや正式初期表示の仕様ではない。
 
@@ -156,6 +172,8 @@ RM 1の検証結果をもとに、RM 2で次を正式決定する。
 - 追加取得の開始条件
 - 同一日時の第2ソートキー
 - 追加後の表示位置維持方式
+- 端末間で絵文字の見た目を統一するか
+- Plotly.jsを含むbundleの大きさを正式採用上どう評価するか
 
 RM 1で仮採用した技術、数値、取得単位はすべて仮値として記録し、RM 2以降の正式決定の入力とする。
 
@@ -163,6 +181,7 @@ RM 1で仮採用した技術、数値、取得単位はすべて仮値として�
 
 | 日付 | 内容 |
 |---|---|
+| 2026-08-15 | RM1-T007を完了。Vercel Hobby + GitHub IntegrationでPC・スマートフォンからの表示と再デプロイを確認し、T008をReadyとする。bundle-size warningと端末間の絵文字表示差をRM 2への判断材料として残す |
 | 2026-08-14 | RM1-T006を完了。固定点の最小散布図、軸操作制約、modebar制御、初期表示時間範囲取得を確認し、T007をReadyとする。Plotly.jsを含むbundle-size warningはT007とRM 2への観察事項として残す |
 | 2026-08-13 | RM1-T005を完了。Docker + Dev Containerによる仮開発環境を追加し、T006をReadyとする |
 | 2026-08-10 | RM1-T004を完了。仮技術構成と試作品配置先を記録し、T005をReadyとする |

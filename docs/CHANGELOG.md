@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- RM1-T007をCompleted、RM1-T008をReadyへ更新。Vercel Hobby + GitHub IntegrationをRM 1の仮デプロイ先として使用し、PC・スマートフォンからの表示とVercel Dashboardからの再デプロイを確認
+- T007のデプロイ先基底URLを`https://emotion-log-dev.vercel.app`として記録し、PC・スマートフォンの確認で使用した共有用クエリパラメータや一時的な共有トークンはリポジトリへ保存しない方針を明記
+- T007でPCとスマートフォンのUnicode絵文字の見た目に差があることを確認し、端末間で見た目を統一するかをOQ-060として追加。T016では端末ごとの差を観察するが、差異だけでは失敗としない
+- T006から引き継いだPlotly.jsを含むbundle-size warningは、T007で表示自体が完了することを確認したうえで、定量的・明示的な体感評価を確定せずRM 2へ引き継ぐ
+- エージェント共通入口としてルート`AGENTS.md`を追加し、`docs/state.md`、`docs/skills/000-workflow.md`、現在タスク、必要時のコード制約へ最短で到達する経路を定義
+- `docs/aidd/evolution-strategy.md`を追加し、Human-led AIDDから段階的にSingle-agent、Agent Execution、Parallel Execution、Multi-agent Autonomousへ進める方針、モデル使用量を抑える原則、フェーズごとの自動化投資の考え方を記録
 - RM1-T006をCompleted、RM1-T007をReadyへ更新。ブラウザ確認、`npm run lint`、`npm run build`、`git diff --check`を完了し、Plotly.jsを含むJavaScript chunkの500 kB超過warningをT007とRM 2への観察事項として記録
 - RM1-T006の散布図で、縦軸を0〜100へ固定し、横軸を検証用の過去下限1989年からページ読込時点の現在時刻までに制約。確認用range表示の見出しを削除
 - 散布図のmodebarからBox SelectとLasso Selectを除外し、PNG保存は自分の散布図だけに提供するUX方針を追加

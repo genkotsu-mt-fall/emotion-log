@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- RM1-T009をCompleted、RM1-T010をReadyへ更新。T008の正本16件を使う分割取得モック、固定1000ms遅延、最古到達、未定義境界のrejectを追加
+- T009で取得レスポンス5 / 5 / 5 / 4、延べ19件、境界重複3件、期待ユニーク累計`5 → 9 → 13 → 16`をVitestで自動検査する構成を追加
+- `docs/state.md`へ現在のAIDDフェーズ`Human-led AIDD`を記録し、AIDD発展方針では現在フェーズの正本を`state.md`へ一本化
+- `docs/skills/README.md`へHuman-led AIDDの議論終了後に変更ZIP・Copilot instruction・Draft PRまでの分割コマンドを生成する運用と、`apply-emotion-log-update.sh`由来のローカル反映テンプレートを追加
 - RM1-T008をCompleted、RM1-T009をReadyへ更新。RM 1のダミーデータ条件として30日×4取得単位、固定基準日、正本16件を定義
 - T008で取得境界の重複3件を含む取得レスポンス延べ19件を定義し、ID統合後の期待件数を`5 → 9 → 13 → 16`とした
 - T008の30日、固定基準日、固定オフセット、仮ID、正本件数、境界重複条件はRM 1検証用であり、正式APIや正式取得単位ではないことを明記

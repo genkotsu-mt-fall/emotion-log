@@ -1,6 +1,6 @@
 # RM1-T010: 初期データを散布図へ表示する
 
-- 状態: Pending
+- 状態: Ready
 - ロードマップ: [docs/roadmap/rm-001-time-axis-pagination-spike.md](../../roadmap/rm-001-time-axis-pagination-spike.md)
 - 依存タスク: RM1-T006, RM1-T009
 
@@ -26,8 +26,8 @@
 ## 参照文書
 
 - [docs/roadmap/rm-001-time-axis-pagination-spike.md](../../roadmap/rm-001-time-axis-pagination-spike.md)
-- RM1-T006の成果物
-- RM1-T009の成果物
+- [RM1-T006の成果物](rm-001-t006-render-fixed-scatter-point.md)
+- [RM1-T009](rm-001-t009-build-paged-data-mock.md)
 
 ## 変更対象
 
@@ -74,4 +74,5 @@
 
 | 日付 | 変更内容 |
 |---|---|
+| 2026-08-15 | T009完了を受けReadyとする |
 | 2026-07-31 | Pendingとして作成 |

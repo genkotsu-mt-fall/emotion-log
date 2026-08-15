@@ -1,6 +1,6 @@
 # RM1-T009: 分割取得モックを作る
 
-- 状態: Pending
+- 状態: Ready
 - ロードマップ: [docs/roadmap/rm-001-time-axis-pagination-spike.md](../../roadmap/rm-001-time-axis-pagination-spike.md)
 - 依存タスク: RM1-T005, RM1-T008
 
@@ -26,7 +26,7 @@
 
 - [docs/roadmap/rm-001-time-axis-pagination-spike.md](../../roadmap/rm-001-time-axis-pagination-spike.md)
 - [docs/ux/data-loading.md](../../ux/data-loading.md)
-- RM1-T008の成果物
+- [RM1-T008](rm-001-t008-design-dummy-data.md)
 
 ## 変更対象
 
@@ -71,4 +71,5 @@
 
 | 日付 | 変更内容 |
 |---|---|
+| 2026-08-15 | T008でダミーデータ条件が確定したためReadyとする |
 | 2026-07-31 | Pendingとして作成 |

@@ -4,19 +4,19 @@ updated_at: 2026-08-15
 phase: planning
 
 current:
-  id: rm-001-t008
-  title: ダミーデータの条件を設計する
+  id: rm-001-t009
+  title: 分割取得モックを作る
   status: ready
-  path: docs/tasks/rm-001/rm-001-t008-design-dummy-data.md
+  path: docs/tasks/rm-001/rm-001-t009-build-paged-data-mock.md
   checkpoint: null
 
 next_action:
-  kind: design_dummy_data
-  reason: RM1-T007で確認用URLへの最小デプロイ、PC・スマートフォンからの表示、再デプロイを確認したため、T009の分割取得モックが依存するダミーデータ条件をT008で設計する
+  kind: build_paged_data_mock
+  reason: RM1-T008で正本16件、4取得単位、境界重複3件、統合後期待件数5→9→13→16、最古ログを固定したため、T009でこの条件を使った分割取得モックを実装する
 
 last_completed:
-  id: rm-001-t007
-  path: docs/tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md
+  id: rm-001-t008
+  path: docs/tasks/rm-001/rm-001-t008-design-dummy-data.md
 ---
 
 # Project State
@@ -27,24 +27,24 @@ last_completed:
 
 - フェーズ: `planning`
 - 現在の作業:
-  - ID: `rm-001-t008`
-  - タイトル: ダミーデータの条件を設計する
+  - ID: `rm-001-t009`
+  - タイトル: 分割取得モックを作る
   - 状態: `ready`
-  - パス: `docs/tasks/rm-001/rm-001-t008-design-dummy-data.md`
+  - パス: `docs/tasks/rm-001/rm-001-t009-build-paged-data-mock.md`
 - checkpoint: なし
 
 ## Last Completed
 
-RM1-T007「確認用URLへ最小デプロイする」（`docs/tasks/rm-001/rm-001-t007-deploy-minimal-prototype.md`）を完了した。
+RM1-T008「ダミーデータの条件を設計する」（`docs/tasks/rm-001/rm-001-t008-design-dummy-data.md`）を完了した。
 
-RM 1の仮デプロイ先としてVercel Hobby + GitHub Integrationを使用し、`main`をProduction Branch、`prototypes/rm-001-scatter-pagination`をRoot Directoryとして公開した。
+RM 1の検証用ダミーデータとして、120日を30日×4取得単位で扱い、正本16件を固定した。
 
-デプロイ先の基底URLとして`https://emotion-log-dev.vercel.app`を記録した。PCとスマートフォンではVercelが発行した確認用URLを開き、固定3点の散布図が表示されることを確認した。共有用トークンはリポジトリへ記録しない。Vercel Dashboardからの再デプロイも成功した。本番APIやDBには依存していない。
+取得境界で`log-005`、`log-009`、`log-013`の3件を意図的に再返却する条件を設け、取得レスポンス延べ19件に対して、ID統合後の期待件数を`5 → 9 → 13 → 16`とした。
 
-T006で観察したPlotly.jsを含むJavaScript bundleの500 kB超過warningは解消していない。PC・スマートフォンのどちらでも表示自体は完了したが、初回表示速度の定量値や明示的な体感評価は確定していないため、正式採用判断とともにRM 2へ引き継ぐ。
+`log-016`を最古ログとし、それより過去にはダミーログが存在しないものとした。
 
-PC版とスマートフォン版で同じUnicode絵文字の見た目が異なることを確認した。T007のBlockerとはせず、端末間で絵文字の見た目を統一するかをOQ-060として管理し、T016の端末確認を判断材料としてRM 2の散布図正式実装方式を決める前に判断する。
+30日、固定基準日、固定オフセット、仮ID、正本件数、境界重複条件はすべてRM 1検証用であり、正式API仕様ではない。
 
 ## Next
 
-RM1-T008「ダミーデータの条件を設計する」で、RM 1の検証シナリオを満たす取得単位、データ分布、境界条件、統合後の期待総件数を設計する。
+RM1-T009「分割取得モックを作る」で、T008の固定データ条件を使い、散布図とは独立して初期取得、過去3回の追加取得、通信遅延、取得範囲、最古到達を再現するモックを実装する。
